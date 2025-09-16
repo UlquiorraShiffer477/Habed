@@ -1,0 +1,767 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!181963792 &2655988077585873504
+Preset:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: CustomizationContoller_Female_4
+  m_TargetType:
+    m_NativeTypeID: 114
+    m_ManagedTypePPtr: {fileID: 11500000, guid: 3ca42b4286f60e14a9820e9a70c96c3c, type: 3}
+    m_ManagedTypeFallback: 
+  m_Properties:
+  - target: {fileID: 0}
+    propertyPath: m_Enabled
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorHideFlags
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorClassIdentifier
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Hair.Array.size
+    value: 7
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Hair.Array.data[0]
+    value: Hair/Hair1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Hair.Array.data[1]
+    value: Hair/Hair2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Hair.Array.data[2]
+    value: Hair/Hair3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Hair.Array.data[3]
+    value: Hair/Hair4
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Hair.Array.data[4]
+    value: Hair/Scarf1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Hair.Array.data[5]
+    value: Hair/Scarf2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Hair.Array.data[6]
+    value: Hair/Scarf3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: activeHairIndex
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Hair_PS
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: LowerFace.Array.size
+    value: 4
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: LowerFace.Array.data[0]
+    value: Face/<Null>Face
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: LowerFace.Array.data[1]
+    value: Face/Earring1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: LowerFace.Array.data[2]
+    value: Face/Earring2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: LowerFace.Array.data[3]
+    value: Face/Earring3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: activeLowerFaceIndex
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: LowerFace_PS
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Shirt.Array.size
+    value: 6
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Shirt.Array.data[0]
+    value: Torso/Shirt1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Shirt.Array.data[1]
+    value: Torso/Shirt2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Shirt.Array.data[2]
+    value: Torso/Shirt3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Shirt.Array.data[3]
+    value: Torso/HabedShirt1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Shirt.Array.data[4]
+    value: Torso/HabedShirt2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Shirt.Array.data[5]
+    value: Torso/Abaya
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: activeShirtIndex
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Shirt_PS
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Pants.Array.size
+    value: 6
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Pants.Array.data[0]
+    value: Legs/<Null>Legs
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Pants.Array.data[1]
+    value: Legs/Pant1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Pants.Array.data[2]
+    value: Legs/Pant2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Pants.Array.data[3]
+    value: Legs/Skirt1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Pants.Array.data[4]
+    value: Legs/HabedSkirt
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Pants.Array.data[5]
+    value: Legs/HabedTrainer
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: activePantsIndex
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Pants_PS
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: HeadAccessories.Array.size
+    value: 4
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: HeadAccessories.Array.data[0]
+    value: Head/<Null>Head
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: HeadAccessories.Array.data[1]
+    value: Head/Headband1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: HeadAccessories.Array.data[2]
+    value: Head/Headband2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: HeadAccessories.Array.data[3]
+    value: Head/Headband3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: activeHeadAccessoriesIndex
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: HeadAccessories_PS
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: EyeAccessories.Array.size
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: EyeAccessories.Array.data[0]
+    value: Eye/<Null>Eye
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: activeEyeAccessoriesIndex
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: EyeAccessories_PS
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: ShoulderAccessories.Array.size
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: ShoulderAccessories.Array.data[0]
+    value: Shoulder.Neck/<Null>Neck
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: ShoulderAccessories.Array.data[1]
+    value: Shoulder.Neck/Necklace1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: ShoulderAccessories.Array.data[2]
+    value: Shoulder.Neck/Necklace2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: activeShoulderAccessoriesIndex
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: ShoulderAccessories_PS
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: BodyAccessories.Array.size
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: BodyAccessories.Array.data[0]
+    value: Body/<Null>Body
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: activeBodyAccessoriesIndex
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: BodyAccessories_PS
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Shoes.Array.size
+    value: 5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Shoes.Array.data[0]
+    value: Feet/Shoe1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Shoes.Array.data[1]
+    value: Feet/Shoe2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Shoes.Array.data[2]
+    value: Feet/Shoe3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Shoes.Array.data[3]
+    value: Feet/Slipper1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Shoes.Array.data[4]
+    value: Feet/HabedShoe
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: activeShoesIndex
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Shoes_PS
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Nose.Array.size
+    value: 5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Nose.Array.data[0]
+    value: Nose/<Null>
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Nose.Array.data[1]
+    value: Nose/Clown
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Nose.Array.data[2]
+    value: Nose/Pinocchio1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Nose.Array.data[3]
+    value: Nose/Pinocchio2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Nose.Array.data[4]
+    value: Nose/Pinocchio3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: activeNoseIndex
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Nose_PS
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: runtimeMaterial
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: runtimeAtlas
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.ClientId
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerID.utf8LengthInBytes
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerID.bytes.offset0000.byte0000
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerID.bytes.offset0000.byte0001
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerID.bytes.offset0000.byte0002
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerID.bytes.offset0000.byte0003
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerID.bytes.offset0000.byte0004
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerID.bytes.offset0000.byte0005
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerID.bytes.offset0000.byte0006
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerID.bytes.offset0000.byte0007
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerID.bytes.offset0000.byte0008
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerID.bytes.offset0000.byte0009
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerID.bytes.offset0000.byte0010
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerID.bytes.offset0000.byte0011
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerID.bytes.offset0000.byte0012
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerID.bytes.offset0000.byte0013
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerID.bytes.offset0000.byte0014
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerID.bytes.offset0000.byte0015
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerID.bytes.byte0016
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerID.bytes.byte0017
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerID.bytes.byte0018
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerID.bytes.byte0019
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerID.bytes.byte0020
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerID.bytes.byte0021
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerID.bytes.byte0022
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerID.bytes.byte0023
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerID.bytes.byte0024
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerID.bytes.byte0025
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerID.bytes.byte0026
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerID.bytes.byte0027
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerID.bytes.byte0028
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerID.bytes.byte0029
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerName.utf8LengthInBytes
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerName.bytes.offset0000.byte0000
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerName.bytes.offset0000.byte0001
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerName.bytes.offset0000.byte0002
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerName.bytes.offset0000.byte0003
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerName.bytes.offset0000.byte0004
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerName.bytes.offset0000.byte0005
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerName.bytes.offset0000.byte0006
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerName.bytes.offset0000.byte0007
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerName.bytes.offset0000.byte0008
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerName.bytes.offset0000.byte0009
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerName.bytes.offset0000.byte0010
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerName.bytes.offset0000.byte0011
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerName.bytes.offset0000.byte0012
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerName.bytes.offset0000.byte0013
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerName.bytes.offset0000.byte0014
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerName.bytes.offset0000.byte0015
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerName.bytes.byte0016
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerName.bytes.byte0017
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerName.bytes.byte0018
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerName.bytes.byte0019
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerName.bytes.byte0020
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerName.bytes.byte0021
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerName.bytes.byte0022
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerName.bytes.byte0023
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerName.bytes.byte0024
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerName.bytes.byte0025
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerName.bytes.byte0026
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerName.bytes.byte0027
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerName.bytes.byte0028
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerName.bytes.byte0029
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerEmail.utf8LengthInBytes
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerEmail.bytes.offset0000.byte0000
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerEmail.bytes.offset0000.byte0001
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerEmail.bytes.offset0000.byte0002
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerEmail.bytes.offset0000.byte0003
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerEmail.bytes.offset0000.byte0004
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerEmail.bytes.offset0000.byte0005
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerEmail.bytes.offset0000.byte0006
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerEmail.bytes.offset0000.byte0007
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerEmail.bytes.offset0000.byte0008
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerEmail.bytes.offset0000.byte0009
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerEmail.bytes.offset0000.byte0010
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerEmail.bytes.offset0000.byte0011
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerEmail.bytes.offset0000.byte0012
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerEmail.bytes.offset0000.byte0013
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerEmail.bytes.offset0000.byte0014
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerEmail.bytes.offset0000.byte0015
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerEmail.bytes.byte0016
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerEmail.bytes.byte0017
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerEmail.bytes.byte0018
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerEmail.bytes.byte0019
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerEmail.bytes.byte0020
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerEmail.bytes.byte0021
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerEmail.bytes.byte0022
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerEmail.bytes.byte0023
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerEmail.bytes.byte0024
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerEmail.bytes.byte0025
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerEmail.bytes.byte0026
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerEmail.bytes.byte0027
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerEmail.bytes.byte0028
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerEmail.bytes.byte0029
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerProfilePic
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerAvatar
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerScore
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerCoins
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PlayerDance
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.playerAvatarSprite
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.IsMan
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.HairIndex
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.LowerFaceIndex
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.ShirtIndex
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.PantsIndex
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.HeadAccessoriesIndex
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.EyeAccessoriesIndex
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.ShoulderAccessoriesIndex
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.BodyAccessoriesIndex
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.ShoesIndex
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: playerInfo.NoseIndex
+    value: 0
+    objectReference: {fileID: 0}
+  m_ExcludedProperties: []

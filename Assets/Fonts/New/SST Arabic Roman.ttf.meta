@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: bd86fe4ae3e63094e9b80d51c5d68b8d
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - SST Arabic
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: a47f7a4664f949740a9501261a9825d4, type: 3}
+  - {fileID: 12800000, guid: c4e3d14af0a073c459ab986bde781623, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

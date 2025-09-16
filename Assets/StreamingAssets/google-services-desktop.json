@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "firebase_url": "null",
+    "project_number": "1033193998344",
+    "project_id": "habed-project",
+    "storage_bucket": "habed-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1033193998344:android:3f4f53fecc8aa7d1db29bd",
+        "android_client_info": {
+          "package_name": "com.beelabs.habed"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1033193998344-gvi2ghi15pc166b0g9or3jnam05nq870.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.beelabs.habed",
+            "certificate_hash": "5bb70ba7ca41ebfb35070320332cc38679ce7968"
+          }
+        },
+        {
+          "client_id": "1033193998344-ri8msrt5ec2fnb47j7sp5otfups93mb9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyASR__C5ruNWpE33dfMmxNcIv15R5IrcMk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1033193998344-ri8msrt5ec2fnb47j7sp5otfups93mb9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

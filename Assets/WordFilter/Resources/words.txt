@@ -1,0 +1,50 @@
+//Starting lines with // will be ignored
+//acceptable lines are
+//	word
+//	word:replacement
+//	word:replacement:notCaseSensitive
+//notCaseSensitive is default true
+//	*word or *word:replacement or word:replacement:notCaseSensitive
+//putting a * in front of a word adds that word to the part list, which means if that word is found as even a part of a word, it will be replaced
+//To add deliminator characters, enclose the characters in brackets {}, all the characters within brackets will be evaluated as such
+{~!@#$%^&*()_-+=:/?.,*}
+*shit:cake
+shitter:folder
+*fucking:reasonable
+*fuck:Honey Badger
+*fucka:dawg
+fucker:honey badger
+*damn:stop
+*bitch:optimist
+gay:preposterous
+fag:cigarette
+*faggot:bundle of sticks
+crap:paper
+*piss:urine
+dick:amazing person, and I can't properly express my feelings
+*pussy:404 error
+pussy cat:feline
+*douche:John Edward
+*douchebag:John Edward in a bag
+douche bag:John Edward in a bag
+ass:horse
+asskick
+asswhipe
+asswipe
+*asshole:likable person
+*slut:fancy dresser
+*bastard:Nixon
+*beaner:lepidopterist
+wetback:philatelist
+cock:vacuum
+*cunt:latrine
+dyke:compact fluorescent light bulb
+dike:compact fluorescent light bulb
+fudgepacker:Tom Cruise
+fudge packer:Tom Cruise
+handjob:walk in the park
+lesbo:xerxes
+*nigga:hat
+*nigger:outstanding citizen
+retard:individual, and why are you so much better than me?
+retarded:intelligent, and I need to use the bathroom

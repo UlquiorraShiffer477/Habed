@@ -1,0 +1,50 @@
+﻿//Starting lines with // will be ignored
+//acceptable lines are
+//        word
+//        word:replacement
+//        word:replacement:notCaseSensitive
+//notCaseSensitive is default true
+//        *word or *word:replacement or word:replacement:notCaseSensitive
+//putting a * in front of a word adds that word to the part list, which means if that word is found as even a part of a word, it will be replaced
+//To add deliminator characters, enclose the characters in brackets {}, all the characters within brackets will be evaluated as such
+{~!@#$%^&*()_-+=:/?.,*}
+*shit
+shitter
+*fucking
+*fuck
+*fucka
+fucker
+*damn
+*bitch
+gay
+fag
+*faggot
+crap
+*piss
+dick
+*pussy
+pussy cat
+*douche
+*douchebag
+douche bag
+ass:horse
+asskick
+asswhipe
+asswipe
+*asshole
+*slut
+*bastard
+*beaner
+wetback
+cock
+*cunt
+dyke
+dike
+fudgepacker
+fudge packer
+handjob
+lesbo
+*nigga
+*nigger
+retard
+retarded

@@ -1,0 +1,364 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2606871451198808232
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2606871451198808235}
+  - component: {fileID: 2606871451198808237}
+  - component: {fileID: 1754658707540608468}
+  - component: {fileID: 3636166064958511029}
+  - component: {fileID: 2737643500667797168}
+  - component: {fileID: 9087217947678208371}
+  m_Layer: 5
+  m_Name: Male
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2606871451198808235
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2606871451198808232}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.35, y: 0.35, z: 0.35}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -173.40265}
+  m_SizeDelta: {x: 476.5358, y: 1384.5708}
+  m_Pivot: {x: 0.58157617, y: -0.0012150381}
+--- !u!222 &2606871451198808237
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2606871451198808232}
+  m_CullTransparentMesh: 0
+--- !u!33 &1754658707540608468
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2606871451198808232}
+  m_Mesh: {fileID: 0}
+--- !u!23 &3636166064958511029
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2606871451198808232}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: e5355006455e48244a64a0a3f8977594, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2737643500667797168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2606871451198808232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ca42b4286f60e14a9820e9a70c96c3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Hair:
+  - Hair/Hair1
+  - Hair/Hair2
+  - Hair/Hair3
+  - Hair/Hair4
+  - Hair/Hatta1
+  - Hair/Hatta2
+  - Hair/Hatta3
+  activeHairIndex: 0
+  Hair_PS: {fileID: 0}
+  LowerFace:
+  - Face/<Null>Beard
+  - Face/Beard1
+  - Face/Beard2
+  - Face/Beard3
+  activeLowerFaceIndex: 0
+  LowerFace_PS: {fileID: 0}
+  Shirt:
+  - Torso/Shirt1
+  - Torso/Shirt2
+  - Torso/Shirt3
+  - Torso/HabedShirt1
+  - Torso/HabedShirt2
+  - Torso/Thob
+  activeShirtIndex: 0
+  Shirt_PS: {fileID: 0}
+  Pants:
+  - Legs/<Null>Legs
+  - Legs/Pants1
+  - Legs/Pants2
+  - Legs/Short1
+  - Legs/HabedShort
+  - Legs/HabedTrainer
+  activePantsIndex: 1
+  Pants_PS: {fileID: 0}
+  HeadAccessories:
+  - Head/<Null>Head
+  - Head/Headphones
+  - Head/Hat1
+  - Head/Tarboosh
+  activeHeadAccessoriesIndex: 0
+  HeadAccessories_PS: {fileID: 0}
+  EyeAccessories:
+  - Eye/<Null>Eye
+  activeEyeAccessoriesIndex: 0
+  EyeAccessories_PS: {fileID: 0}
+  ShoulderAccessories:
+  - Shoulder.Neck/<Null>Shoulder.Neck
+  - Shoulder.Neck/Pendant
+  activeShoulderAccessoriesIndex: 0
+  ShoulderAccessories_PS: {fileID: 0}
+  BodyAccessories:
+  - Body/<Null>Body
+  - Body/Belt1
+  activeBodyAccessoriesIndex: 0
+  BodyAccessories_PS: {fileID: 0}
+  Shoes:
+  - Feet/Shoe1
+  - Feet/Shoe2
+  - Feet/Shoe3
+  - Feet/Slipper1
+  - Feet/HabedShoe
+  activeShoesIndex: 0
+  Shoes_PS: {fileID: 0}
+  Nose:
+  - Nose/<Null>Nose
+  - Nose/Clown
+  - Nose/Pinocchio1
+  - Nose/Pinocchio2
+  - Nose/Pinocchio3
+  activeNoseIndex: 0
+  Nose_PS: {fileID: 0}
+  skeletonAnimation: {fileID: 0}
+  runtimeMaterial: {fileID: 0}
+  runtimeAtlas: {fileID: 0}
+  EquipAnim:
+  - Equip1
+  SelectedAnim: Equip2
+  IdleAnim: Idle
+  playerInfo:
+    ClientId: 0
+    PlayerID:
+      utf8LengthInBytes: 0
+      bytes:
+        offset0000:
+          byte0000: 0
+          byte0001: 0
+          byte0002: 0
+          byte0003: 0
+          byte0004: 0
+          byte0005: 0
+          byte0006: 0
+          byte0007: 0
+          byte0008: 0
+          byte0009: 0
+          byte0010: 0
+          byte0011: 0
+          byte0012: 0
+          byte0013: 0
+          byte0014: 0
+          byte0015: 0
+        byte0016: 0
+        byte0017: 0
+        byte0018: 0
+        byte0019: 0
+        byte0020: 0
+        byte0021: 0
+        byte0022: 0
+        byte0023: 0
+        byte0024: 0
+        byte0025: 0
+        byte0026: 0
+        byte0027: 0
+        byte0028: 0
+        byte0029: 0
+    PlayerName:
+      utf8LengthInBytes: 0
+      bytes:
+        offset0000:
+          byte0000: 0
+          byte0001: 0
+          byte0002: 0
+          byte0003: 0
+          byte0004: 0
+          byte0005: 0
+          byte0006: 0
+          byte0007: 0
+          byte0008: 0
+          byte0009: 0
+          byte0010: 0
+          byte0011: 0
+          byte0012: 0
+          byte0013: 0
+          byte0014: 0
+          byte0015: 0
+        byte0016: 0
+        byte0017: 0
+        byte0018: 0
+        byte0019: 0
+        byte0020: 0
+        byte0021: 0
+        byte0022: 0
+        byte0023: 0
+        byte0024: 0
+        byte0025: 0
+        byte0026: 0
+        byte0027: 0
+        byte0028: 0
+        byte0029: 0
+    PlayerEmail:
+      utf8LengthInBytes: 0
+      bytes:
+        offset0000:
+          byte0000: 0
+          byte0001: 0
+          byte0002: 0
+          byte0003: 0
+          byte0004: 0
+          byte0005: 0
+          byte0006: 0
+          byte0007: 0
+          byte0008: 0
+          byte0009: 0
+          byte0010: 0
+          byte0011: 0
+          byte0012: 0
+          byte0013: 0
+          byte0014: 0
+          byte0015: 0
+        byte0016: 0
+        byte0017: 0
+        byte0018: 0
+        byte0019: 0
+        byte0020: 0
+        byte0021: 0
+        byte0022: 0
+        byte0023: 0
+        byte0024: 0
+        byte0025: 0
+        byte0026: 0
+        byte0027: 0
+        byte0028: 0
+        byte0029: 0
+    PlayerProfilePic: 0
+    PlayerAvatar: 0
+    PlayerScore: 0
+    PlayerCoins: 0
+    PlayerDance: 0
+    playerAvatarSprite: 0
+    IsMan: 0
+    HairIndex: 0
+    LowerFaceIndex: 0
+    ShirtIndex: 0
+    PantsIndex: 0
+    HeadAccessoriesIndex: 0
+    EyeAccessoriesIndex: 0
+    ShoulderAccessoriesIndex: 0
+    BodyAccessoriesIndex: 0
+    ShoesIndex: 0
+    NoseIndex: 0
+--- !u!114 &9087217947678208371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2606871451198808232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d85b887af7e6c3f45a2e2d2920d641bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 2100000, guid: b66cf7a186d13054989b33a5c90044e4, type: 2}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  skeletonDataAsset: {fileID: 11400000, guid: 68cad7c4faa8e2a46966de7d63399ef5, type: 2}
+  additiveMaterial: {fileID: 0}
+  multiplyMaterial: {fileID: 0}
+  screenMaterial: {fileID: 0}
+  initialSkinName: 
+  initialFlipX: 0
+  initialFlipY: 0
+  startingAnimation: Idle
+  startingLoop: 1
+  timeScale: 1
+  freeze: 0
+  updateWhenInvisible: 3
+  allowMultipleCanvasRenderers: 0
+  canvasRenderers: []
+  separatorSlotNames: []
+  enableSeparatorSlots: 0
+  separatorParts: []
+  updateSeparatorPartLocation: 1
+  disableMeshAssignmentOnOverride: 1
+  meshGenerator:
+    settings:
+      useClipping: 1
+      zSpacing: 0
+      pmaVertexColors: 1
+      tintBlack: 0
+      canvasGroupTintBlack: 0
+      calculateTangents: 0
+      addNormals: 0
+      immutableTriangles: 0
+  updateTiming: 1
+  unscaledTime: 0
