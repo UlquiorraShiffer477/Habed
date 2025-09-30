@@ -70,13 +70,13 @@ public class MediationAdvertismentsBase : MonoBehaviour
 
             Debug.Log("Google Mobile Ads initialization complete.");
 
-            MobileAds.OpenAdInspector((AdInspectorError error) =>
-            {
-                // Error will be set if there was an issue and the inspector was not displayed.
-            });
+            // MobileAds.OpenAdInspector((AdInspectorError error) =>
+            // {
+            //     // Error will be set if there was an issue and the inspector was not displayed.
+            // });
         });
 
-        // RequestInterstitial();
+        RequestInterstitial();
         RequestRewardBasedVideo();
     }
 

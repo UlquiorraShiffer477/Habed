@@ -170,7 +170,9 @@ public class GamePlayManager : NetworkBehaviour
 
         FinalResultsBackButton.GetComponent<UIAnimatedObject>().advanceOptions.callBackFunction.AddListener(() =>
         {
-            ShowRewardedPopUp();
+            // ShowRewardedPopUp();
+            // WatchAd();
+            LeaveGame();
         });
 
         // PlayerReadyDictionary = new Dictionary<ulong, bool>();
@@ -229,6 +231,15 @@ public class GamePlayManager : NetworkBehaviour
         {
             Debug.Log("Rewarded Ad Not Availabe");
         }
+    }
+
+    public void WatchAd()
+    {
+        // MediationAdvertismentsBase.Instance.ShowInterstitial(() =>
+        // {
+            
+        //     LeaveGame();
+        // });
     }
 
     #endregion
@@ -1552,7 +1563,11 @@ public class GamePlayManager : NetworkBehaviour
 
     public void LeaveGame()
     {
-        StartCoroutine(LeaveGame_Coroutine());
+        MediationAdvertismentsBase.Instance.ShowInterstitial(() =>
+        {
+            Debug.Log("Ads Played!");
+            StartCoroutine(LeaveGame_Coroutine());
+        });
     }
     public IEnumerator LeaveGame_Coroutine()
     {
