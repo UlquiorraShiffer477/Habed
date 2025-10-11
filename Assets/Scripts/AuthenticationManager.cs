@@ -570,26 +570,6 @@ public class AuthenticationManager : MonoBehaviour
         }
     }
 
-    public void AppleSignOut()
-    {
-        // #if UNITY_IOS
-        m_AppleAuthManager.SetCredentialsRevokedCallback(async result =>
-        {
-            // Sign in with Apple Credentials were revoked.
-            // Discard credentials/user id and go to login screen.
-
-            // We Need This!!! Uncomment!
-            // await AuthenticationService.Instance.UnlinkAppleAsync(idToken);
-
-            AuthenticationService.Instance.ClearSessionToken();
-            userLoggedInState = UserLoggedInState.None;
-
-            PlayerPrefManager.PlayerAuthData.SetAuthMethod(-1);
-            Loader.Load(Loader.Scene.RegistrationScreen);
-        });
-        // #endif
-    }
-
     // Call This On Mobile Devices....
     public async Task AuthenticateWithGoogle()
     {
@@ -686,6 +666,31 @@ public class AuthenticationManager : MonoBehaviour
         Loader.Load(Loader.Scene.RegistrationScreen);
 #endif
     }
+    public void AppleSignOut()
+    {
+#if UNITY_IOS
+            Debug.Log("AuthenticationService :: SignOut()");
+            AuthenticationService.Instance.SignOut();
+
+            Debug.Log("AuthenticationService :: ClearSessionToken()");
+            AuthenticationService.Instance.ClearSessionToken();
+            userLoggedInState = UserLoggedInState.None;
+
+            PlayerPrefManager.PlayerAuthData.SetAuthMethod(-1);
+
+            Debug.Log("Loader :: Loader.Scene.RegistrationScreen");
+            Loader.Load(Loader.Scene.RegistrationScreen);
+        // m_AppleAuthManager.SetCredentialsRevokedCallback(async result =>
+        // {
+        //     // Sign in with Apple Credentials were revoked.
+        //     // Discard credentials/user id and go to login screen.
+
+        //     // We Need This!!! Uncomment!
+        //     // await AuthenticationService.Instance.UnlinkAppleAsync(idToken);
+            
+        // });
+#endif
+    }
     public void GuestSignOut()
     {
         AuthenticationService.Instance.SignOut();
@@ -707,7 +712,7 @@ public class AuthenticationManager : MonoBehaviour
         PlayerDataManager.Instance.playerData = new PlayerData();
         await PlayerDataManager.Instance.SaveDataObject(PlayerDataManager.Instance.PLAYERDATA, PlayerDataManager.Instance.playerData);
         Debug.Log("Data got saved using cloud save!");
-        
+
         userLoggedInState = UserLoggedInState.None;
         MainNetworkManager.Instance.CleanUp();
 

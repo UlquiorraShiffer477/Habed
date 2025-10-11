@@ -764,6 +764,7 @@ namespace Spine.Unity.Examples
             switch (AuthenticationManager.Instance.userLoggedInState)
             {
                 case UserLoggedInState.Anonymously:
+                    Debug.Log("OnSignOutClick :: Anonymously");
                     AuthenticationManager.Instance.GuestSignOut();
                     PlayerDataManager.Instance.playerData = new PlayerData();
                     // Loader.Load(Loader.Scene.RegistrationScreen);
@@ -771,6 +772,7 @@ namespace Spine.Unity.Examples
 
 
                 case UserLoggedInState.Google:
+                    Debug.Log("OnSignOutClick :: Google");
                     PlayerDataManager.Instance.playerData = new PlayerData();
                     AuthenticationManager.Instance.GoogleSignOut();
                     // Loader.Load(Loader.Scene.RegistrationScreen);
@@ -778,6 +780,7 @@ namespace Spine.Unity.Examples
 
 
                 case UserLoggedInState.Apple:
+                    Debug.Log("OnSignOutClick :: Apple");
                     PlayerDataManager.Instance.playerData = new PlayerData();
                     AuthenticationManager.Instance.AppleSignOut();
                     // Loader.Load(Loader.Scene.RegistrationScreen);
