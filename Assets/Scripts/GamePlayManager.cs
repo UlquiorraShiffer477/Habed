@@ -215,7 +215,7 @@ public class GamePlayManager : NetworkBehaviour
                     GlobalManager.Instance.CanAddCoins = true;
 
                     LeaveGame();
-                    
+
                     return;
                 }
 
@@ -237,7 +237,7 @@ public class GamePlayManager : NetworkBehaviour
     {
         // MediationAdvertismentsBase.Instance.ShowInterstitial(() =>
         // {
-            
+
         //     LeaveGame();
         // });
     }
@@ -532,6 +532,9 @@ public class GamePlayManager : NetworkBehaviour
 
     public IEnumerator OnAnswerWritten()
     {
+        // Shuffel List...
+        // RoomSessionManager.Instance.Shuffle(RoomSessionManager.Instance.roundAnswersGOs);
+
         ChoosingAnswerScreen.SetActive(true);
         AddingAnswersScreen.SetActive(false);
 
@@ -728,6 +731,58 @@ public class GamePlayManager : NetworkBehaviour
         RayCastPanel.SetActive(false);
 
         roomSessionManager.CreateAnswerOptions();
+    }
+
+    public void DebugGroupedPlayerAnswers()
+    {
+        if (GroupedPlayerAnswers == null || GroupedPlayerAnswers.Count == 0)
+        {
+            Debug.LogWarning("⚠️ GroupedPlayerAnswers is empty or null!");
+            return;
+        }
+
+        Debug.Log($"📦 GroupedPlayerAnswers count: {GroupedPlayerAnswers.Count}");
+
+        int groupIndex = 0;
+        foreach (var group in GroupedPlayerAnswers)
+        {
+            Debug.Log($"--- 🧩 Group #{groupIndex} ---");
+            Debug.Log($"Answer: {group.PlayerAnswer}");
+            Debug.Log($"IsCorrect: {group.IsCorrect}");
+            Debug.Log($"PlayersWhoChoseThis: {string.Join(", ", group.PlayersID_WhoChooseThis.Select(id => id.ToString()))}");
+            Debug.Log($"PlayersNames_WhoChooseOwnerAnswer: {string.Join(", ", group.PlayersNames_WhoChooseOwnerAnswer)}");
+
+            if (group.Players == null || group.Players.Count == 0)
+            {
+                Debug.Log("   ❌ No players in this group.");
+            }
+            else
+            {
+                for (int i = 0; i < group.Players.Count; i++)
+                {
+                    var p = group.Players[i];
+                    Debug.Log($"   👤 Player[{i}]:");
+                    Debug.Log($"       ClientId: {p.ClientId}");
+                    Debug.Log($"       PlayerName: {p.PlayerName}");
+                    Debug.Log($"       PlayerAnswer: {p.PlayerAnswer}");
+                    Debug.Log($"       PlayerScore: {p.PlayerScore}");
+                    Debug.Log($"       PlayerRank: {p.PlayerRank}");
+                    Debug.Log($"       IsCorrect: {p.IsCorrect}");
+                    Debug.Log($"       DidPlayerAnswer: {p.DidPlayerAnswer}");
+                    Debug.Log($"       IsDefaultAnswer: {p.IsDefaultAnswer}");
+                    Debug.Log($"       PlayersWhoChooseOwnerAnswer: {string.Join(", ", p.PlayersWhoChooseOwnerAnswer)}");
+                    Debug.Log($"       PlayersIDWhoChooseThis: {string.Join(", ", p.PlayersIDWhoChooseThis.Select(id => id.ToString()))}");
+                }
+            }
+
+            groupIndex++;
+        }
+    }
+
+    [System.Serializable]
+    public class Wrapper<T>
+    {
+        public T Data;
     }
 
     // ---------------------Scene Ready------------------- //
@@ -971,7 +1026,7 @@ public class GamePlayManager : NetworkBehaviour
         if (allClientsReady)
         {
             CreateAnswerOptionsServerRpc();
-            state.Value = State.ChoosingAnswers;
+            // state.Value = State.ChoosingAnswers;
         }
     }
 
@@ -1076,7 +1131,7 @@ public class GamePlayManager : NetworkBehaviour
         if (allClientsReady)
         {
             CreateAnswerOptionsServerRpc();
-            state.Value = State.ChoosingAnswers;
+            // state.Value = State.ChoosingAnswers;
             PlayerAnswerReadyDictionary.Clear();
         }
 
@@ -1127,7 +1182,7 @@ public class GamePlayManager : NetworkBehaviour
         if (allClientsReady)
         {
             CreateAnswerOptionsServerRpc();
-            state.Value = State.ChoosingAnswers;
+            // state.Value = State.ChoosingAnswers;
         }
     }
 
@@ -1159,7 +1214,7 @@ public class GamePlayManager : NetworkBehaviour
         if (allClientsReady)
         {
             CreateAnswerOptionsServerRpc();
-            state.Value = State.ChoosingAnswers;
+            // state.Value = State.ChoosingAnswers;
             PlayerAnswerReadyDictionary = new Dictionary<ulong, bool>();
         }
 
@@ -1944,7 +1999,10 @@ public class GamePlayManager : NetworkBehaviour
             }
 
             Debug.Log("GroupPlayerAnswers Task Finished");
+
         });
+
+        RoomSessionManager.Instance.ShuffleServerRpc();
 
         Debug.Log("GroupPlayerAnswers Function Finished");
     }

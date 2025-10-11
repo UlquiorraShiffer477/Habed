@@ -284,8 +284,8 @@ namespace Spine.Unity.Examples
 
             ActiveCustomizationController = MaleCustomizationContoller;
 
-            Female.DOScale(Vector3.one, 0.4f).SetEase(Ease.InOutCubic);
-            Male.DOScale(new Vector3(1.2f, 1.2f, 1.2f), 0.4f).SetEase(Ease.InOutCubic);
+            Female.DOScale(new Vector3(0.85f, 0.85f, 0.85f), 0.4f).SetEase(Ease.InOutCubic);
+            Male.DOScale(new Vector3(1f, 1f, 1f), 0.4f).SetEase(Ease.InOutCubic);
         }
 
         public void OnFemaleSelected()
@@ -314,8 +314,8 @@ namespace Spine.Unity.Examples
 
             ActiveCustomizationController = FemaleCustomizationContoller;
 
-            Male.DOScale(Vector3.one, 0.4f).SetEase(Ease.InOutCubic);
-            Female.DOScale(new Vector3(1.2f, 1.2f, 1.2f), 0.4f).SetEase(Ease.InOutCubic);
+            Male.DOScale(new Vector3(0.85f, 0.85f, 0.85f), 0.4f).SetEase(Ease.InOutCubic);
+            Female.DOScale(new Vector3(1f, 1f, 1f), 0.4f).SetEase(Ease.InOutCubic);
         }
 
         public void OnContinueClicked()
@@ -582,7 +582,7 @@ namespace Spine.Unity.Examples
                 Male.DOAnchorPosX(UIManagerTheUltimate.Instance.CenterStartPosition, 0.6f).SetEase(Ease.InOutCubic);
                 Female.DOAnchorPosX(UIManagerTheUltimate.Instance.RightStartPosition, 0.6f).SetEase(Ease.InOutCubic);
 
-                Male.DOAnchorPosY(80, 0.6f).SetEase(Ease.InOutCubic);
+                Male.DOAnchorPosY(35, 0.6f).SetEase(Ease.InOutCubic);
                 Male.DOScale(new Vector3(1.3f, 1.3f, 1.3f), 0.6f).SetEase(Ease.InOutCubic);
 
                 Title.DOAnchorPosY(100, 0.6f).SetEase(Ease.InOutCubic);
@@ -611,7 +611,7 @@ namespace Spine.Unity.Examples
                 Male.DOAnchorPosX(UIManagerTheUltimate.Instance.LeftStartPosition, 0.6f).SetEase(Ease.InOutCubic);
                 Female.DOAnchorPosX(UIManagerTheUltimate.Instance.CenterStartPosition, 0.6f).SetEase(Ease.InOutCubic);
 
-                Female.DOAnchorPosY(80, 0.6f).SetEase(Ease.InOutCubic);
+                Female.DOAnchorPosY(35, 0.6f).SetEase(Ease.InOutCubic);
                 Female.DOScale(new Vector3(1.3f, 1.3f, 1.3f), 0.6f).SetEase(Ease.InOutCubic);
 
                 Title.DOAnchorPosY(100, 0.6f).SetEase(Ease.InOutCubic);

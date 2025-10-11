@@ -281,8 +281,48 @@ public class RoomSessionManager : NetworkBehaviour
             yield break;
         }
 
+        Debug.Log("Server: Syncing grouped answers to all clients...");
+
+        // // Serialize and send
+        // string groupedJson = JsonUtility.ToJson(new Wrapper<List<PlayerAnswerGroup>>
+        // {
+        //     Data = GamePlayManager.Instance.GroupedPlayerAnswers
+        // });
+
+        // SyncGroupedAnswersClientRpc(groupedJson);
+
         Debug.Log("CreateAnswerOptions **");
         CreateAnswerOptionsClientRpc();
+    }
+
+    [ClientRpc]
+    private void SyncGroupedAnswersClientRpc(string groupedJson)
+    {
+        if (string.IsNullOrEmpty(groupedJson))
+        {
+            Debug.LogError("Received empty grouped answers JSON!");
+            return;
+        }
+
+        var wrapper = JsonUtility.FromJson<Wrapper<List<PlayerAnswerGroup>>>(groupedJson);
+        if (wrapper == null || wrapper.Data == null)
+        {
+            Debug.LogError("Failed to deserialize grouped answers JSON!");
+            return;
+        }
+
+        GamePlayManager.Instance.GroupedPlayerAnswers = wrapper.Data;
+
+        for (int i = 0; i < GamePlayManager.Instance.GroupedPlayerAnswers.Count; i++)
+        {
+            Debug.Log($"GamePlayManager.Instance.GroupedPlayerAnswers [{i}] = {GamePlayManager.Instance.GroupedPlayerAnswers[i].PlayerAnswer}");
+        }
+    }
+
+    [System.Serializable]
+    public class Wrapper<T>
+    {
+        public T Data;
     }
 
     // Helper class to wait for a Task in a coroutine
@@ -381,6 +421,22 @@ public class RoomSessionManager : NetworkBehaviour
     [ClientRpc]
     void CreateAnswerOptionsClientRpc()
     {
+        // if (string.IsNullOrEmpty(groupedJson))
+        // {
+        //     Debug.LogError("Received empty grouped answers JSON!");
+        //     return;
+        // }
+
+        // var wrapper = JsonUtility.FromJson<Wrapper<List<PlayerAnswerGroup>>>(groupedJson);
+        // if (wrapper == null || wrapper.Data == null)
+        // {
+        //     Debug.LogError("Failed to deserialize grouped answers JSON!");
+        //     return;
+        // }
+
+        // GamePlayManager.Instance.GroupedPlayerAnswers = wrapper.Data;
+
+        // GamePlayManager.Instance.DebugGroupedPlayerAnswers();
         Debug.Log("CreateAnswerOptionsClientRpc Instantiating Answers");
 
         // Add a short delay and recheck
@@ -390,7 +446,7 @@ public class RoomSessionManager : NetworkBehaviour
         }
         else
         {
-            CreateAnswers();
+            StartCoroutine(DelayedAnswerCreation());
         }
     }
 
@@ -410,6 +466,8 @@ public class RoomSessionManager : NetworkBehaviour
 
     private void CreateAnswers()
     {
+        // Shuffle(GamePlayManager.Instance.GroupedPlayerAnswers);
+
         // Move the answer creation logic here
         foreach (PlayerAnswerGroup _playerAnswerGroup in GamePlayManager.Instance.GroupedPlayerAnswers)
         {
@@ -478,8 +536,9 @@ public class RoomSessionManager : NetworkBehaviour
 
 
     [ServerRpc(RequireOwnership = false)]
-    public void ShuffleNetworkListServerRpc()
+    public void ShuffleNetworkListServerRpc(string _json)
     {
+
         // if (IsServer)
         // {
         for (int i = 0; i < roundAnswersGOs.Count; i++)
@@ -626,7 +685,7 @@ public class RoomSessionManager : NetworkBehaviour
                             continue;
 
                         answerPanelController.PlayersWhoMadeThis[i].gameObject.SetActive(true);
-                        
+
                         if (answerPanelController.FullPlayerAnswerGroup.Players[i].ClientId == 100)
                             answerPanelController.PlayersWhoMadeThis[i].gameObject.SetActive(false);
                     }
@@ -1390,16 +1449,6 @@ public class RoomSessionManager : NetworkBehaviour
         GamePlayManager.Instance.FinalResultsScreen.SetActive(true);
     }
 
-    public void ResetPlayersScores()
-    {
-        // foreach(var v in DemoPlayers)
-        // {
-        //     // v.ownerInfo.PlayerScore = 0;
-        // }
-
-        // PlayerDataManager.Instance.SetPlayerScore(0);
-    }
-
 
     // amount is: **roundmanager.getscore()*fullplayeranswer.playerswhoclicked.count**
     // P is: **fullplayeranswer.ownerinfo**
@@ -1429,52 +1478,44 @@ public class RoomSessionManager : NetworkBehaviour
         // playersAnswer[temp].playersWhoClicked = P.playersWhoClicked;
     }
 
-    // public List<AnswerController> Shuffle(List<AnswerController> go, bool _addToNewList = false)
-    // {
-    //     List<AnswerController> tempList = go;
-    //     for (int i = 0; i < go.Count; i++)
-    //     {
-    //         AnswerController tempObject = go[i];
-    //         int randomIndex = UnityEngine.Random.Range(i, go.Count);
-    //         go[i] = go[randomIndex];
-    //         go[randomIndex] = tempObject;
 
-    //         // if (_addToNewList)
-    //         // {
-    //         //     finalPlayersAnswer.Add(go[i].playerSessionInfo);
-    //         // }
-    //     }
-
-    //     return tempList;
-    // }
-    public void ShuffleVoid(List<AnswerController> go, bool _addToNewList = false)
+    public void Shuffle<T>(List<T> list)
     {
-        for (int i = 0; i < go.Count; i++)
+        for (int i = list.Count - 1; i > 0; i--)
         {
-            // AnswerController tempObject = go[i];
-            int randomIndex = UnityEngine.Random.Range(i, go.Count);
-            // go[i] = go[randomIndex];
-            // go[randomIndex] = tempObject;
-
-            RandomIndex.Add(randomIndex);
-            Debug.Log("RandomIndex : " + RandomIndex[i]);
+            int randomIndex = UnityEngine.Random.Range(0, i + 1);
+            T temp = list[i];
+            list[i] = list[randomIndex];
+            list[randomIndex] = temp;
         }
     }
 
-    public void Shuffle(List<AnswerController> list)
+    [ServerRpc]
+    public void ShuffleServerRpc()
     {
-        // if (!IsServer)
-        //     return;
+        if (!IsServer)
+            return;
 
-        int n = list.Count;
-        while (n > 1)
+        GamePlayManager.Instance.state.Value = GamePlayManager.State.ChoosingAnswers;
+        
+
+        Debug.Log("ShuffleServerRpc");
+
+        for (int i = GamePlayManager.Instance.GroupedPlayerAnswers.Count - 1; i > 0; i--)
         {
-            n--;
-            int k = UnityEngine.Random.Range(0, n + 1);
-            AnswerController value = list[k];
-            list[k] = list[n];
-            list[n] = value;
+            int randomIndex = UnityEngine.Random.Range(0, i + 1);
+            PlayerAnswerGroup temp = GamePlayManager.Instance.GroupedPlayerAnswers[i];
+            GamePlayManager.Instance.GroupedPlayerAnswers[i] = GamePlayManager.Instance.GroupedPlayerAnswers[randomIndex];
+            GamePlayManager.Instance.GroupedPlayerAnswers[randomIndex] = temp;
         }
+
+        // Serialize and send
+        string groupedJson = JsonUtility.ToJson(new Wrapper<List<PlayerAnswerGroup>>
+        {
+            Data = GamePlayManager.Instance.GroupedPlayerAnswers
+        });
+
+        SyncGroupedAnswersClientRpc(groupedJson);
     }
 
     public void ShuffleNetworkList()
