@@ -517,10 +517,20 @@ public class AuthenticationManager : MonoBehaviour
         }
         catch (RequestFailedException ex)
         {
-            // Compare error code to CommonErrorCodes
-            // Notify the player with the proper error message
-            RegistrationManager.Instance.BufferingScreen.SetActive(false);
-            Debug.LogException(ex);
+            Debug.Log("ex.ErrorCode = " + ex.ErrorCode);
+
+            if (ex.ErrorCode == CommonErrorCodes.TokenExpired)
+            {
+                // Notify the player with the proper error message
+                // Compare error code to CommonErrorCodes
+                Debug.LogException(ex);
+                Debug.Log("Saved token failed, TokenExpired: " + ex.Message);
+
+                PlayerPrefs.DeleteKey(APPLE_TOKEN_KEY);
+                RegistrationManager.Instance.BufferingScreen.SetActive(false);
+
+                LoginToApple();
+            }
         }
     }
 
@@ -563,10 +573,20 @@ public class AuthenticationManager : MonoBehaviour
         }
         catch (RequestFailedException ex)
         {
-            // Compare error code to CommonErrorCodes
-            // Notify the player with the proper error message
-            Debug.LogException(ex);
-            RegistrationManager.Instance.BufferingScreen.SetActive(false);
+            Debug.Log("ex.ErrorCode = " + ex.ErrorCode);
+            
+            if (ex.ErrorCode == CommonErrorCodes.TokenExpired)
+            {
+                // Notify the player with the proper error message
+                // Compare error code to CommonErrorCodes
+                Debug.LogException(ex);
+                Debug.Log("Saved token failed, TokenExpired: " + ex.Message);
+
+                PlayerPrefs.DeleteKey(APPLE_TOKEN_KEY);
+                RegistrationManager.Instance.BufferingScreen.SetActive(false);
+
+                LoginToApple();
+            }
         }
     }
 
