@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class GameInitializer : MonoBehaviour
@@ -27,6 +28,11 @@ public class GameInitializer : MonoBehaviour
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
 
         Application.targetFrameRate = 60;
+        
+        #if UNITY_IPHONE
+        PlayerSettings.iOS.hideHomeButton = true;
+        #endif
+        
         QualitySettings.vSyncCount = 0;
 
         MediationAdvertismentsBase.Instance.InitAdMob();
