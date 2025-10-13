@@ -512,7 +512,7 @@ public class AuthenticationManager : MonoBehaviour
         {
             Debug.Log("ex.ErrorCode = " + ex.ErrorCode);
 
-            if (ex.ErrorCode == CommonErrorCodes.TokenExpired)
+            if (ex.ErrorCode == AuthenticationErrorCodes.InvalidParameters)
             {
                 // Notify the player with the proper error message
                 // Compare error code to CommonErrorCodes
@@ -529,7 +529,7 @@ public class AuthenticationManager : MonoBehaviour
         {
             Debug.Log("ex.ErrorCode = " + ex.ErrorCode);
 
-            if (ex.ErrorCode == CommonErrorCodes.TokenExpired)
+            if (ex.ErrorCode == AuthenticationErrorCodes.InvalidParameters)
             {
                 // Notify the player with the proper error message
                 // Compare error code to CommonErrorCodes
@@ -578,7 +578,7 @@ public class AuthenticationManager : MonoBehaviour
         {
             Debug.Log("ex.ErrorCode = " + ex.ErrorCode);
 
-            if (ex.ErrorCode == CommonErrorCodes.TokenExpired)
+            if (ex.ErrorCode == AuthenticationErrorCodes.InvalidParameters)
             {
                 // Notify the player with the proper error message
                 // Compare error code to CommonErrorCodes
@@ -595,7 +595,7 @@ public class AuthenticationManager : MonoBehaviour
         {
             Debug.Log("ex.ErrorCode = " + ex.ErrorCode);
             
-            if (ex.ErrorCode == CommonErrorCodes.TokenExpired)
+            if (ex.ErrorCode == AuthenticationErrorCodes.InvalidParameters)
             {
                 // Notify the player with the proper error message
                 // Compare error code to CommonErrorCodes
