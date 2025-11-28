@@ -23,44 +23,44 @@ public class UIBannerManager : MonoBehaviour
 
     public void Start()
     {
-        // Store the original position of the panel
-        if (mainButtonPanel != null)
-        {
-            originalButtonsPanelPosition = mainButtonPanel.anchoredPosition;
-        }
+        // // Store the original position of the panel
+        // if (mainButtonPanel != null)
+        // {
+        //     originalButtonsPanelPosition = mainButtonPanel.anchoredPosition;
+        // }
 
-        if (mainCharactersItems != null)
-        {
-            originalItemPanelPosition = mainCharactersItems.anchoredPosition;
-        }
+        // if (mainCharactersItems != null)
+        // {
+        //     originalItemPanelPosition = mainCharactersItems.anchoredPosition;
+        // }
 
-        hasStoredOriginalPosition = true;
+        // hasStoredOriginalPosition = true;
 
-        // Subscribe to banner size changes
-        if (MediationAdvertismentsBase.Instance != null)
-        {
-            Debug.Log("Subbed :: OnBannerSizeChanged");
-            MediationAdvertismentsBase.OnBannerSizeChanged += OnBannerSizeChanged;
-        }
+        // // Subscribe to banner size changes
+        // if (MediationAdvertismentsBase.Instance != null)
+        // {
+        //     Debug.Log("Subbed :: OnBannerSizeChanged");
+        //     MediationAdvertismentsBase.OnBannerSizeChanged += OnBannerSizeChanged;
+        // }
 
-        // Subscribe to notch updates
-        NotchManager.OnUpdateNotch += UpdateUILayout;
+        // // Subscribe to notch updates
+        // NotchManager.OnUpdateNotch += UpdateUILayout;
 
-        ShowBannerAndLiftPanel();
+        // ShowBannerAndLiftPanel();
     }
 
     private void OnDestroy()
     {
-        HideBannerAndResetPanel();
+        // HideBannerAndResetPanel();
 
-        // Unsubscribe from events
-        if (MediationAdvertismentsBase.Instance != null)
-        {
-            Debug.Log("Unsubbed :: OnBannerSizeChanged");
-            MediationAdvertismentsBase.OnBannerSizeChanged -= OnBannerSizeChanged;
-        }
+        // // Unsubscribe from events
+        // if (MediationAdvertismentsBase.Instance != null)
+        // {
+        //     Debug.Log("Unsubbed :: OnBannerSizeChanged");
+        //     MediationAdvertismentsBase.OnBannerSizeChanged -= OnBannerSizeChanged;
+        // }
 
-        NotchManager.OnUpdateNotch -= UpdateUILayout;
+        // NotchManager.OnUpdateNotch -= UpdateUILayout;
     }
 
     private void OnBannerSizeChanged(float bannerHeightInPixels)
@@ -73,7 +73,7 @@ public class UIBannerManager : MonoBehaviour
         // Show the banner
         if (MediationAdvertismentsBase.Instance != null)
         {
-            MediationAdvertismentsBase.Instance.ShowBanner();
+            // MediationAdvertismentsBase.Instance.ShowBanner();
         }
     }
 
