@@ -16,6 +16,7 @@ using System.Text;
 using Newtonsoft.Json;
 
 using System.Net.Security;
+using WebSocketSharp;
 
 [Serializable]
 public class JsonPostBody
@@ -28,17 +29,17 @@ public class BackEndManager : NetworkBehaviour
 {
     #region Instance
     private static BackEndManager _instance;
-    
-    public static BackEndManager Instance
-	{
-		get
-		{
-			if (!_instance)
-				_instance = GameObject.FindObjectOfType<BackEndManager>();
 
-			return _instance;
-		}
-	}
+    public static BackEndManager Instance
+    {
+        get
+        {
+            if (!_instance)
+                _instance = GameObject.FindObjectOfType<BackEndManager>();
+
+            return _instance;
+        }
+    }
     #endregion
 
     [SerializeField] string jsonURL_WithDefaultOptions;
@@ -47,7 +48,7 @@ public class BackEndManager : NetworkBehaviour
     NetworkVariable<FixedString4096Bytes> jsonFixedtring = new NetworkVariable<FixedString4096Bytes>("...");
 
     UnityWebRequest WWWRequest;
-    
+
     public JsonPostBody jsonPostBody;
 
     public JsonDataBase jsonDataBase;
@@ -60,11 +61,11 @@ public class BackEndManager : NetworkBehaviour
 
     [Header("Return Options")]
     [SerializeField] bool returnOptions = true;
-    
-    
-    void Start() 
+
+
+    void Start()
     {
-        if(!IsServer)
+        if (!IsServer)
             return;
 
         Init();
@@ -92,15 +93,12 @@ public class BackEndManager : NetworkBehaviour
     {
         jsonPostBody.numberofuser = MainNetworkManager.Instance.PlayerInfoNetworkList.Count;
 
-        // string jsonPostBodyString = JsonUtility.ToJson(jsonPostBody);
-
-        WWWRequest = UnityWebRequest.PostWwwForm(_url, "POST");
+        WWWRequest = UnityWebRequest.PostWwwForm(_url, "");
         WWWRequest.SetRequestHeader("Content-Type", "application/json");
-        WWWRequest.uploadHandler = new UploadHandlerRaw(Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(jsonPostBody))) as UploadHandler;
+        WWWRequest.uploadHandler = new UploadHandlerRaw(Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(jsonPostBody)));
+        WWWRequest.downloadHandler = new DownloadHandlerBuffer();
 
         Debug.Log("www: " + _url);
-
-        StartCoroutine(WatForResponse(WWWRequest));
 
         yield return WWWRequest.SendWebRequest();
 
@@ -110,22 +108,50 @@ public class BackEndManager : NetworkBehaviour
         }
         else
         {
-            if(IsServer)
-                jsonFixedtring.Value = WWWRequest.downloadHandler.text;
+            string responseText = WWWRequest.downloadHandler.text;
+            Debug.Log("Raw Response: " + responseText);
 
-            Debug.Log(jsonFixedtring.Value.ToString());
+            if (IsServer)
+            {
+                jsonFixedtring.Value = responseText;
+            }
+            else
+            {
+                while (jsonFixedtring.Value.ToString().IsNullOrEmpty())
+                {
+                    yield return new WaitForSeconds(0.01f);
+                }
+            }
 
-            jsonDataBase = JsonUtility.FromJson<JsonDataBase>(jsonFixedtring.Value.ToString());
-            rounds = jsonDataBase.rounds;
+            // CRITICAL: Make a local copy BEFORE parsing to avoid race conditions
+            string jsonToParse = jsonFixedtring.Value.ToString();
 
-            RoundManager.Instance.rounds = rounds;
+            // Small delay to ensure the NetworkVariable is fully synced on clients
+            yield return new WaitForSeconds(0.1f);
 
-            // Assign Question Fields...
-            RoundManager.Instance.AssignQuestionTextFields();
+            // Make another copy to be safe
+            jsonToParse = jsonFixedtring.Value.ToString();
 
-            // Parse the JSON string to extract the text and audio file paths
-            // and save them to the device.
-            SaveFilesFromJSON();
+            if (string.IsNullOrEmpty(jsonToParse) || string.IsNullOrWhiteSpace(jsonToParse))
+            {
+                Debug.LogError("JSON value is empty or null!");
+                yield break;
+            }
+
+            try
+            {
+                Debug.Log("Parsing JSON: [" + jsonToParse + "]");
+                jsonDataBase = JsonUtility.FromJson<JsonDataBase>(jsonToParse);
+                rounds = jsonDataBase.rounds;
+                RoundManager.Instance.rounds = rounds;
+                RoundManager.Instance.AssignQuestionTextFields();
+                SaveFilesFromJSON();
+            }
+            catch (System.Exception ex)
+            {
+                Debug.LogError("JSON Parse Error: " + ex.Message);
+                Debug.LogError("Failed JSON: " + jsonToParse);
+            }
         }
     }
 
@@ -155,7 +181,7 @@ public class BackEndManager : NetworkBehaviour
 
                     if (www.result == UnityWebRequest.Result.Success)
                     {
-                    
+
                         // Debug.Log("Audios Got loaded!");
 
                         AllAudiosRetrived.Add(DownloadHandlerAudioClip.GetContent(www));
@@ -183,11 +209,11 @@ public class BackEndManager : NetworkBehaviour
         CurrentQuestionAudioClip = AllAudiosRetrived[CurrentAudioIndex];
         // Debug.Log("AssignCurrentQuestionAudioClip 2");
 
-        if (CurrentAudioIndex < AllAudiosRetrived.Count -1)
+        if (CurrentAudioIndex < AllAudiosRetrived.Count - 1)
         {
             // Debug.Log("AssignCurrentQuestionAudioClip 1");
-            CurrentAudioIndex ++;
-        }       
+            CurrentAudioIndex++;
+        }
     }
 
     public void DeleteSavedFiles()
@@ -213,8 +239,8 @@ public class BackEndManager : NetworkBehaviour
 
     IEnumerator WatForResponse(UnityWebRequest request)
     {
-       while (!request.isDone)
-       {
+        while (!request.isDone)
+        {
             // FadedBG.Instance.Init((int)request.downloadProgress);
 
             //progressBar.value = request.downloadProgress;
@@ -224,8 +250,8 @@ public class BackEndManager : NetworkBehaviour
 
             // FadedBG.Instance.UpdateAssetNames("Downloading Products...");
 
-            yield return new WaitForSeconds(0.001f);
-       }
+            yield return new WaitForSeconds(0.01f);
+        }
     }
 
     // public struct FixedPlayerName : INetworkSerializable, IEquatable<FixedPlayerName>{
@@ -233,11 +259,11 @@ public class BackEndManager : NetworkBehaviour
     // public void NetworkSerialize<T>(BufferSerializer<T> serializer) where T : IReaderWriter {
     //     serializer.SerializeValue(ref m_Name);
     // }
- 
+
     // public override string ToString() {
     //     return m_Name.Value.ToString();
     // }
- 
+
     // public static implicit operator string(FixedPlayerName s) => s.ToString();
     // public static implicit operator FixedPlayerName(string s) => new FixedPlayerName() { m_Name = new FixedString32Bytes(s) };
 
@@ -248,27 +274,27 @@ public class BackEndManager : NetworkBehaviour
     // }
 
     //List Serialization...
-        // int lenght = 0;
-        // FixedPlayerName[] Array; 
-        // if (!serializer.IsReader)
-        // {
-        //     Array = PlayersWhoChooseOwnerAnswer.ToArray();
-        //     lenght = Array.Length;
-        // }
-        // else
-        // {
-        //     Array = new FixedPlayerName[lenght];
-        // }
-        // serializer.SerializeValue(ref lenght);
+    // int lenght = 0;
+    // FixedPlayerName[] Array; 
+    // if (!serializer.IsReader)
+    // {
+    //     Array = PlayersWhoChooseOwnerAnswer.ToArray();
+    //     lenght = Array.Length;
+    // }
+    // else
+    // {
+    //     Array = new FixedPlayerName[lenght];
+    // }
+    // serializer.SerializeValue(ref lenght);
 
-        // for (int i = 0; i < lenght; ++i)
-        // {
-        //     serializer.SerializeValue(ref Array[i]);
-        // }
+    // for (int i = 0; i < lenght; ++i)
+    // {
+    //     serializer.SerializeValue(ref Array[i]);
+    // }
 
-        // if (serializer.IsReader)
-        // {
-        //     PlayersWhoChooseOwnerAnswer = Array.ToList();
-        // }
-    
+    // if (serializer.IsReader)
+    // {
+    //     PlayersWhoChooseOwnerAnswer = Array.ToList();
+    // }
+
 }

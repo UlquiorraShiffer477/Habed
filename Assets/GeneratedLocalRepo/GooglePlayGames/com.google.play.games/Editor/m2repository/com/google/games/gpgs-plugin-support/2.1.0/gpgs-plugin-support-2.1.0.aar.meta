@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 3f3223ee8fec89642a54f2b87354bf3c
+guid: e029bd989f8c9fc43b7543eb7286f213
 labels:
 - gpsr
 PluginImporter:
   externalObjects: {}
-  serializedVersion: 2
+  serializedVersion: 3
   iconMap: {}
   executionOrder: {}
   defineConstraints: []
@@ -13,14 +13,10 @@ PluginImporter:
   isExplicitlyReferenced: 0
   validateReferences: 1
   platformData:
-  - first:
-      Any: 
-    second:
+    Any:
       enabled: 0
       settings: {}
-  - first:
-      Editor: Editor
-    second:
+    Editor:
       enabled: 1
       settings:
         DefaultValueInitialized: true

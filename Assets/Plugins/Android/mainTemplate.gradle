@@ -16,7 +16,6 @@ dependencies {
 
 // Android Resolver Exclusions Start
 android {
-    ndkVersion "**NDKVERSION**"
   packaging {
       exclude ('/lib/armeabi/*' + '*')
       exclude ('/lib/mips/*' + '*')
@@ -27,23 +26,24 @@ android {
 }
 // Android Resolver Exclusions End
 android {
-    ndkPath "**NDKPATH**"
     namespace "com.unity3d.player"
+    ndkPath "**NDKPATH**"
+    ndkVersion "**NDKVERSION**"
 
     compileSdk **APIVERSION**
-    buildToolsVersion '**BUILDTOOLS**'
+    buildToolsVersion = "**BUILDTOOLS**"
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 
     defaultConfig {
         minSdk **MINSDK**
         targetSdk **TARGETSDK**
         ndk {
-            debugSymbolLevel **DEBUGSYMBOLLEVEL**
             abiFilters **ABIFILTERS**
+            debugSymbolLevel **DEBUGSYMBOLLEVEL**
         }
         versionCode **VERSIONCODE**
         versionName '**VERSIONNAME**'
