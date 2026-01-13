@@ -45,7 +45,7 @@ public class BackEndManager : NetworkBehaviour
     [SerializeField] string jsonURL_WithDefaultOptions;
     [SerializeField] string jsonURL_NoDefaultOptions;
 
-    NetworkVariable<FixedString4096Bytes> jsonFixedtring = new NetworkVariable<FixedString4096Bytes>("...");
+    NetworkVariable<FixedString4096Bytes> jsonFixedtring = new NetworkVariable<FixedString4096Bytes>();
 
     UnityWebRequest WWWRequest;
 
@@ -119,18 +119,29 @@ public class BackEndManager : NetworkBehaviour
             {
                 while (jsonFixedtring.Value.ToString().IsNullOrEmpty())
                 {
-                    yield return new WaitForSeconds(0.01f);
+                    Debug.Log("Waiting to sync [jsonFixedtring] with host...");
+                    yield return new WaitForSeconds(0.1f);
                 }
             }
 
+            Debug.Log("jsonFixedtring.Value = " + jsonFixedtring.Value.ToString());
+
             // CRITICAL: Make a local copy BEFORE parsing to avoid race conditions
             string jsonToParse = jsonFixedtring.Value.ToString();
+
+            while (jsonToParse.ToString().IsNullOrEmpty())
+            {
+                Debug.Log("Waiting to assign [jsonToParse]...");
+                yield return new WaitForSeconds(0.1f);
+            }
 
             // Small delay to ensure the NetworkVariable is fully synced on clients
             yield return new WaitForSeconds(0.1f);
 
             // Make another copy to be safe
             jsonToParse = jsonFixedtring.Value.ToString();
+
+            Debug.Log("jsonToParse = " + jsonToParse);
 
             if (string.IsNullOrEmpty(jsonToParse) || string.IsNullOrWhiteSpace(jsonToParse))
             {
